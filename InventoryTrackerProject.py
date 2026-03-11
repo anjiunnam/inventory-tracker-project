@@ -13,3 +13,10 @@ class InventoryTracker:
         if item_name in self.items:
             return self.items[item_name]
         return "Item not found"
+
+    def alertLowStock(self, threshold=5):
+        low_stock_items = []
+        for item, quantity in self.items.items():
+            if quantity < threshold:
+                low_stock_items.append(item)
+        return low_stock_items
